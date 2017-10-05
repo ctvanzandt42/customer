@@ -23,26 +23,26 @@ public class MainController {
         return "index";
     }
 
-    @RequestMapping(path = "Customers", method = RequestMethod.GET)
+    @RequestMapping(path = "/customers", method = RequestMethod.GET)
     public String customer(Model model) {
         List<Customer> customers = customerService.get();
         model.addAttribute("customers", customers);
         return "customers";
     }
 
-    @RequestMapping(path = "AddCustomer", method = RequestMethod.GET)
+    @RequestMapping(path = "/add-customer", method = RequestMethod.GET)
     public String addCustomer() {
         return "add-customer";
     }
 
 
-    @RequestMapping(path = "ViewCustomer/{id}", method = RequestMethod.GET)
+    @RequestMapping(path = "/view-customer/{id}", method = RequestMethod.GET)
     public String viewCustomer( @PathVariable("id") int id, Model model){
         Customer customer = customerService.getById(id);
         model.addAttribute("customer", customer);
         return "view-customer";
     }
-    @RequestMapping(path ="AddCustomer", method = RequestMethod.POST)
+    @RequestMapping(path ="/add-customer", method = RequestMethod.POST)
     public String newCustomerProperties(@ModelAttribute("newCustomer") Customer newCustomer){
         System.out.println(newCustomer);
         customerService.add(newCustomer);
