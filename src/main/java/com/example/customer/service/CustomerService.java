@@ -1,10 +1,10 @@
-package com.example.customer.repository;
+package com.example.customer.service;
 
 import com.example.customer.model.Customer;
 
 import java.util.List;
 
-public interface CustomerRepository {
+public interface CustomerService {
     void add(Customer customer);
     void update(Customer customer);
     Customer getById(int id);
